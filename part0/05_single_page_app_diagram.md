@@ -26,4 +26,11 @@ sequenceDiagram
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note right of browser: The browser executes the callback function that renders the notes and sends the new note to the server
+    browser-->>server: JSON data {"content": "another new note", "date":"2024-7-11"}
+    server->>browser: status code 201 (created)
+    deactivate server
 ```
